@@ -1,5 +1,6 @@
 package me.victo.vaccineapp.services
 
+import me.victo.vaccineapp.models.Medicine
 import me.victo.vaccineapp.models.User
 import me.victo.vaccineapp.models.UserVaccineRegistry
 import me.victo.vaccineapp.models.Vaccine
@@ -52,6 +53,12 @@ class VaccineService {
 
     fun createVaccine(vaccine: Vaccine){
         //Do some DB Stuff to register the vaccine
+    }
+
+    fun updateVaccineStockAt(medicalUnitId : Int, vaccines: List<Vaccine>){
+        for (vaccine in vaccines){
+            //Save in DB using medicalUnitId
+        }
     }
 
 }

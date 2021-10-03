@@ -1,8 +1,7 @@
 package me.victo.vaccineapp.controllers
 
-import me.victo.vaccineapp.models.Credential
+import me.victo.vaccineapp.models.MedicalUnit
 import me.victo.vaccineapp.models.Medicine
-import me.victo.vaccineapp.models.User
 import me.victo.vaccineapp.services.MedicineService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -30,6 +29,22 @@ class MedicineController {
     @GetMapping("/getMedicine/{medicine_id}")
     fun getMedicine(@PathVariable medicine_id : Int) : ResponseEntity<Medicine>{
         return ResponseEntity<Medicine>(medicineService.getMedicine(medicine_id), HttpStatus.OK)
+    }
+
+    @GetMapping("/getMedicine")
+    fun queryMedicines(
+        @RequestParam("medicineName") medicineName : String
+        ) : ResponseEntity<List<Medicine>> {
+       return ResponseEntity<List<Medicine>>(medicineService.queryMedicine(medicineName), HttpStatus.OK)
+    }
+
+    @PostMapping("/registerAvailableMedineAt/{medical_unit_id}")
+    fun registerAvailableMedicine(
+        @PathVariable(name = "medical_unit_id") medicalUnitId : Int,
+        @RequestBody medicines: List<Medicine>
+    ): ResponseEntity<Unit> {
+        medicineService.updateMedicineStockAt(medicalUnitId, medicines)
+        return ResponseEntity(HttpStatus.ACCEPTED)
     }
 
 }
