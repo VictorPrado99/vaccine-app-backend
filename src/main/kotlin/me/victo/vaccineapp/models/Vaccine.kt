@@ -1,7 +1,9 @@
 package me.victo.vaccineapp.models
 
+import org.jetbrains.annotations.Nullable
+
 data class Vaccine(
-    val id : Int,
+    @Nullable val id : Int,
     val vaccineName : String,
     val timeBetweenDosesInDays : Int
 )

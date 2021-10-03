@@ -1,7 +1,11 @@
 package me.victo.vaccineapp.models
 
+import org.jetbrains.annotations.Nullable
+
 data class MedicalReport(
-    val id : Int,
+    @Nullable val id : Int,
     val doctorName : String,
-    val CRM : String
+    val CRM : String,
+    val patientId : Int,
+    val text : String
 )

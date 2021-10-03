@@ -23,6 +23,8 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	implementation("io.swagger.codegen.v3:swagger-codegen-maven-plugin:3.0.16")
+
 }
 
 tasks.withType<KotlinCompile> {

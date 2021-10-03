@@ -50,4 +50,8 @@ class VaccineService {
         return mapVaccineDays
     }
 
+    fun createVaccine(vaccine: Vaccine){
+        //Do some DB Stuff to register the vaccine
+    }
+
 }

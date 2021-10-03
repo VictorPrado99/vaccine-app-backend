@@ -1,7 +1,12 @@
 package me.victo.vaccineapp.models
 
+import me.victo.vaccineapp.models.utils.Location
+import org.jetbrains.annotations.Nullable
+
 data class MedicalUnit(
-    val id : Int,
+    @Nullable val id : Int,
     val medicalUnitName : String,
-    val avaibleVaccine: List<Vaccine>
+    val availableVaccine: List<Vaccine>,
+    val availableMedicine : List<Medicine>,
+    val location : Location
 )
